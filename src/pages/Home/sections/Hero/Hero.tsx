@@ -12,7 +12,14 @@ const Hero = () => {
     backgroundColor: theme.palette.primary.main,
     height: "100vh", //para q a section ocupe a tela toda
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    [theme.breakpoints.up('xs')]:{  // <= mobile
+
+    },
+
+    [theme.breakpoints.up('md')]:{ // >= mobile
+      paddingTop: "0" 
+    }
   }));
 
   const StyledImg = styled("img")(({theme}) => ({
@@ -47,7 +54,7 @@ const Hero = () => {
               <Grid container display="flex" justifyContent="center" spacing={3} pb={3}>
                 <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center">
 
-              <StyledButton> 
+              <StyledButton onClick={() => console.log("download")}> 
                 <DownloadIcon /> 
                 <Typography>
                 Download CV
@@ -55,7 +62,7 @@ const Hero = () => {
                 </StyledButton>
                 </Grid>
                 <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center">
-              <StyledButton>
+              <StyledButton onClick={() => console.log("contact")}>
                 <EmailIcon/>
                 <Typography>
                 Contact me
